@@ -3,7 +3,7 @@ function eventCode(){
       var foodItem = $("input").val();
       if(foodItem !== ''){
          var createLiTag = $("<li class='food'></li>").text(foodItem);
-         $(createLiTag).append("  <button class='del'>Delete</button>");
+         $(createLiTag).append("  <button class='del btn btn-danger btn-sm ml-3'>Delete</button>");
          $("#list").append(createLiTag);
          $("input").val("");
          $(".food").on({
