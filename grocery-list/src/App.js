@@ -9,27 +9,24 @@ class App extends Component {
       foodItem: '',
       groceryList: []
     }
-    
   }
-   
   
+  onAddItem =(event) =>{
+    event.preventDefault(); 
 
-  onAddItem(){
     this.setState({
       groceryList : [...this.state.groceryList, this.state.foodItem],
       foodItem: ''
     });
-    console.log("Item added");
   }
 
-  onDeleteItem(){
+  onDeleteItem = (i) => {
     this.setState({
-      groceryList: this.state.groceryList.filter(item => item !== item)
+      groceryList: this.state.groceryList.filter((item, j) => i !== j)
     });
-    console.log("Item Deleted: " );
   }
 
-  onListCleared(){
+  onListCleared = () => {
     this.setState({
       groceryList: []
     });
@@ -37,32 +34,32 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <div className="App">
         <div id="listContainer">
           <h1><u>Your Grocery List!</u></h1>
+
           <ul id="list">
               {
                 this.state.groceryList.map((item, index) => (<li className='food' key={index}>{item} 
-                <button className='del btn btn-danger btn-sm ml-3' 
-                onClick={ this.onDeleteItem.bind(this)}>Delete</button>
+                <button type="button" className='del btn btn-danger btn-sm ml-3' 
+                onClick={() => this.onDeleteItem(index)}>X</button>
                 </li>))
               }
           </ul>
-
-          <form className="form-group">
-              <label type="text">Add an item:
-                <input id="input" 
-                className="form-control" type="text" value={this.state.foodItem}
+          <hr />
+          <form className="form-inline form-group">
+              <input id="input" 
+                className="form-control-sm mr-2" type="text" value={this.state.foodItem}
                 onChange={event => this.setState({foodItem: event.target.value})}/>
-              </label>
+              <button className="btn btn-success mr-2" 
+                onClick={(event) => this.onAddItem(event)} 
+                >Add to list!</button>
+                <button id="reset" className="btn btn-warning" onClick={this.onListCleared}>Clear List</button>
           </form>
 
-          <button id="addFood" className="btn btn-success" 
-          onClick={this.onAddItem.bind(this)} 
-          >Add to list!</button> <br /> <br />
-          <button id="reset" className="btn btn-warning" onClick={this.onListCleared.bind(this)}>Clear List</button>
+           <br /> <br />
+          
 
           <p>Welcome to Your Grocery List! If you want to add an item,
               just type it in and click the button 'Add to list!'
