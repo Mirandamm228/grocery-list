@@ -1,0 +1,32 @@
+body {
+  background-image: url("scott-warman-525481-unsplash.jpg");
+  background-size: cover;
+display: flex;
+justify-content: center;
+}
+
+#listContainer {
+  margin: 50px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.80);
+  font-family: Georgia;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 2.0;
+  text-align: center;
+  list-style-position: inside;
+}
+
+#listContainer p {
+  font-size: 12px;
+  font-style: italic;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li button {
+  font-size: 10px;
+}
