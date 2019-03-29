@@ -13,11 +13,18 @@ class App extends Component {
   
   onAddItem =(event) =>{
     event.preventDefault(); 
+    if(this.state.foodItem !== ''){
+      this.setState({
+        groceryList : [...this.state.groceryList, this.state.foodItem],
+        foodItem: ''
+      });
+    }
+  }
 
-    this.setState({
-      groceryList : [...this.state.groceryList, this.state.foodItem],
-      foodItem: ''
-    });
+  onEnterItem = (event) => {
+    if(event.keyCode == 13){
+      this.onAddItem();
+    }
   }
 
   onDeleteItem = (i) => {
@@ -43,7 +50,7 @@ class App extends Component {
               {
                 this.state.groceryList.map((item, index) => (<li className='food' key={index}>{item} 
                 <button type="button" className='del btn btn-danger btn-sm ml-3' 
-                onClick={() => this.onDeleteItem(index)}>X</button>
+                onClick={() => this.onDeleteItem(index)} onKeyDown={(event)=>this.onEnterItem(event)}>X</button>
                 </li>))
               }
           </ul>
