@@ -6,16 +6,16 @@ body {
   justify-content: center;
 }
 
+
+
 form.form-group {
   display: flex;
   justify-content: center;
 }
 
 
-#listContainer {
-  margin: 50px;
+.listContainer {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.80);
   font-family: Georgia;
   color: black;
   font-size: 16px;
@@ -25,10 +25,10 @@ form.form-group {
   list-style-position: inside;
 }
 
-#listContainer li {
+.listContainer li {
   font-size: 1.25em;
 } 
-#listContainer p {
+.listContainer p {
   font-size: 12px;
   font-style: italic;
 }
@@ -37,6 +37,8 @@ ul {
   list-style-type: none;
 }
 
-/* li button {
-  font-size: 10px;
+/* @media screen and (min-width: 909px){
+  .componentContainer {
+    width: 80rem;
+  }
 } */
